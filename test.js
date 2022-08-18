@@ -1,59 +1,62 @@
-// ? Використовуючи prompt задайте питання, на яке можна відповісти "так" чи "ні"
-// ? Випадкове число для відповіді генерується функцією Math.floor(Math.random() * 5)
-// ? Використовуйте switch для створення випадкових відповідей, де:
-// ? 0 - 'Все будет ОК'
-// ? 1 - 'Може так, а може ні'
-// ? 2 - 'Певно, ні'
-// ? 3 - 'Дуже ймовірно'
-// ? def - 'Я нічого про цк не знаю'
-// ? Вивести відповідь із запитанням ("Поставлене запитання - question.
-// ?  Шар думає, що - answer")
-let question = "";
-let answer = "";
-let i = "";
-
-let getGame = confirm("Тебе щось тривожить дитино моя?");
-
-switch (getGame) {
+const dataFruits1 = ["ківі", " банан", " манго", " яблуко"];
+console.log(dataFruits1)
+const dataFruits2 = [" авокадо", " персик", " виноград", " груша"]
+console.log(dataFruits2)
+let dataFruitsNew = dataFruits1.concat(dataFruits2);
+console.log(dataFruitsNew)
+let dataFruitsWasChanged ="";
+let forAdding = "";
+let forDeleting = "";
+let indexOfAdd = "";
+let indexOfDel = "";
+let forReplace = "";
+const NAMIBIA = confirm(`Ви збираєтесь змінити раціон диктатора московії. Продовжуємо?`)
+switch (NAMIBIA) {
   case false:
-    alert("То якого ... ти сюди приперлось?");
+    alert(`Сьогодні він житиме.`)
     break;
-  case true:
-    for (i = 0; i <= 5; i += 1) {
-      question = prompt(
-        "Що ж тривожить твою гнилу душу? (лише питання закритого типу)"
+    case true:
+      let whatToDo = prompt(
+        `ЩО ви баєте зробити? Додати - знак "+". для вдалення знак "-", для замінии введіть "-/+`
       );
-      switch (question) {
-        case null:
-          alert("Не ігнор мене падлюко! Нужбо задавай питання! Тільки не став ПРОБІЛ");
+      console.log(whatToDo);
+      switch (whatToDo) {
+        case "+":
+          forAdding = prompt(`Який елемент ви бажаєте добавити?`);
+          console.log(forAdding);
+          indexOfAdd = prompt(`Після якого елементу ви бажаєте добавити ваш? Введіть номер елемента після якого бажаєте добавити ваш: ${dataFruitsNew}`)
+          dataFruitsNew.splice(indexOfAdd, 0, forAdding);
+          console.log(dataFruitsNew);
+          alert(`Вітаю, Ви це зробили. Україну врятовано! У диктатора алергія на ${forAdding}`)
           break;
-        case " ":
-          alert("Господи! Яке ж воно кончене ...");
+        case "-":
+          forDeleting = prompt(`Який елемент ви бажаєте видалити? Оберіть із достуних: ${dataFruitsNew}`);
+          console.log(forDeleting);
+          indexOfDel = dataFruitsNew.indexOf(forDeleting);
+          console.log(indexOfDel);
+          dataFruitsNew.splice(indexOfDel, 1);
+          console.log(dataFruitsNew);
+          alert(`Вітаю, ви це зробили. Ви зекономили кошти і можете передати їх на ЗСУ.`)
           break;
+          case "-/+":
+            forDeleting = prompt(`Який елемент ви бажаєте замінити? Оберіть із достуних: ${dataFruitsNew}`);
+            forReplace = prompt(`На який елемент ви бажаєте замінити?`);
+            console.log(forDeleting);
+            indexOfDel = dataFruitsNew.indexOf(forDeleting);
+            console.log(indexOfDel);
+            dataFruitsNew.splice(indexOfDel, 1);
+            console.log(dataFruitsNew);
+            alert(`Вітаю, Ви це зробили. Україну врятовано! У диктатора алергія на ${forReplace}`)
+            break;
         default:
-          const random = Math.floor(Math.random() * 6);
-          switch (random) {
-            case 0:
-              answer = "Прислухайся свого серця!";
-              break;
-            case 1:
-              answer = "Ееееее.... а біс його знає!";
-              break;
-            case 2:
-              answer = "Таке дурне тільки ти можеш запитати ...";
-              break;
-            case 3:
-              answer = `"До поки сонце сяєє, до поки ....." ну далі ти знаєш`;
-              break;
-            case 4:
-              answer = `"Я зеленого поняття не маю про що мова =)`;
-              break;
-          }
-          alert(
-            `Мольфар Єфродозій віщає що - ${answer} (Поставлене запитання - ${question}???.)`
-          );
+          alert("please restart")
           break;
       }
-    }
+      console.log(dataFruitsNew);
+    
+    break;
+
+  default:
     break;
 }
+
