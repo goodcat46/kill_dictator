@@ -40,7 +40,7 @@ switch (NAMIBIA) {
           break;
           case "-/+":
             forDeleting = prompt(`Який елемент ви бажаєте замінити? Оберіть із достуних: ${dataFruitsNew}`);
-            forReplace = prompt(`На який елемент ви бажаєте замінити?`);
+            forReplace = prompt(`На який елемент ви бажаєте замінити? Оберіть із достуних: ${dataFruitsNew}`);
             console.log(forDeleting);
             indexOfDel = dataFruitsNew.indexOf(forDeleting);
             console.log(indexOfDel);
