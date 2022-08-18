@@ -36,7 +36,7 @@ switch (NAMIBIA) {
           console.log(indexOfDel);
           dataFruitsNew.splice(indexOfDel, 1);
           console.log(dataFruitsNew);
-          alert(`Вітаю, ви це зробили. Ви зекономили кошти і можете передати їх на ЗСУ.`)
+          alert(`Вітаю, ви це зробили. Україну це не врятує. Та Ви зекономили кошти і можете передати їх на ЗСУ.`)
           break;
           case "-/+":
             forDeleting = prompt(`Який елемент ви бажаєте замінити? Оберіть із достуних: ${dataFruitsNew}`);
